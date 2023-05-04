@@ -7,11 +7,14 @@
 
 //MILESTONE 2 Adesso rimuoviamo tutto il markup statico e inseriamo tutte le immagini dinamicamente servendoci dell’array fornito e un semplice ciclo for che concatena un template literal. Tutte le immagini saranno nascoste, tranne la prima, che avrà una classe specifica che la renderà visibile. Al termine di questa fase ci ritroveremo con lo stesso slider stilato nella milestone 1, ma costruito dinamicamente attraverso JavaScript.
 
-    // variabile attiva
-    let activePhoto = 0 ;
+    // variabili globali
+    let album ; 
+    let photo ; 
+    let activePhoto ; 
+    let arrow;
 
     // array con le img
-    let album =  ["01.webp", "02.webp", "03.webp", "04.webp", "05.webp", ];
+    album =  ["01.webp", "02.webp", "03.webp", "04.webp", "05.webp", ];
     console.log(album);
 
 // container del carosello
@@ -27,25 +30,36 @@
 
         // inserisco il div all interno di album 
         container.append(square);
+
         // inserisco img all interno del div
-        square.innerHTML = `<img src="img/${album[activePhoto++]}">`;
+        square.innerHTML = `<img src="img/${album[i]}">`;
 
     }
 
     // seleziono le foto per poterle gestire
-
-    // imposto un indice per segnare la foto attiva al momento
+        photo = document.querySelectorAll('.photo');
+        console.log(photo);
+        
+    // imposto un indice per segnare la foto attiva al momento 
+        activePhoto = photo[0].classList.add('active');
 
     // seleziono la freccia che permetterà di mostrare le img una dopo l'altra
 
+       arrow = document.querySelector('.bottom');
  
 
 // MILESTONE 3 Al click dell’utente sulle frecce, il programma cambierà l’immagine attiva, che quindi verrà visualizzata al posto della precedente.
 
 
     // funzione al click
+    arrow.addEventListener('click',
+    function() {
+// togli la classe active all'elemento attivo in quel momento
+        photo[activePhoto].classList.remove('photo');
 
-    // togli la classe active all'elemento attivo in quel momento
+    }
+    )
+    
 
     // passare alla foto successiva
 

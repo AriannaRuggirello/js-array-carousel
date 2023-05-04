@@ -24,7 +24,7 @@
 
 .photo{
     display: none;
-    height: 70vh;
+   
 }
 
 .active{
@@ -35,8 +35,7 @@
     max-width: 100%;
 }
 
-.arrow_bottom,
-.arrow_top{
+.arrow{
     position: absolute;
     left: 50%;
     color: white;
@@ -46,10 +45,10 @@
     padding: 0 5px;   
 }
 
-.arrow_top{
+.top{
     top: 0%;    
 }
-.arrow_bottom{
+.bottom{
     bottom: 0%;
 }
 

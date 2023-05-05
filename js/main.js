@@ -57,25 +57,25 @@
     arrow.addEventListener('click',
     function() {
 
-        if(activePhoto < photo.length - 1){
+        if(activePhoto < (photo.length - 1))
+        {
             // togli la classe active all'elemento attivo in quel momento
             photo[activePhoto].classList.remove('active');
 
             // passare alla foto successiva
-                activePhoto++;
+                activePhoto ++;
 
             // alla foto successiva aggiungere la classe active
                 photo[activePhoto].classList.add('active');
 
-        // se arrivo all'ultima img devo far scomparire la freccia
-        if(activePhoto === photo.length -1)
-            {
-                arrow.classList('photo');
-                // classe photo perchè ha display none
-            }
+            // se arrivo all'ultima img devo far scomparire la freccia
+            if(activePhoto === (photo.length -1))
+                {
+                    arrow.classList.add('photo');
+                    // classe photo perchè ha display none
+                }
         }
     
-
     }
     )
     

@@ -39,13 +39,15 @@
     // seleziono le foto per poterle gestire
         photo = document.querySelectorAll('.photo');
         console.log(photo);
+    // la prima immagine deve essere active
+        photo[0].classList.add('active');
         
     // imposto un indice per segnare la foto attiva al momento 
-        activePhoto = photo[0].classList.add('active');
+        activePhoto = 0;
 
     // seleziono la freccia che permetterà di mostrare le img una dopo l'altra
 
-       arrow = document.querySelector('.bottom');
+       arrow = document.querySelector('.arrow');
  
 
 // MILESTONE 3 Al click dell’utente sulle frecce, il programma cambierà l’immagine attiva, che quindi verrà visualizzata al posto della precedente.
@@ -54,15 +56,30 @@
     // funzione al click
     arrow.addEventListener('click',
     function() {
-// togli la classe active all'elemento attivo in quel momento
-        photo[activePhoto].classList.remove('photo');
+
+        if(activePhoto < photo.length - 1){
+            // togli la classe active all'elemento attivo in quel momento
+            photo[activePhoto].classList.remove('active');
+
+            // passare alla foto successiva
+                activePhoto++;
+
+            // alla foto successiva aggiungere la classe active
+                photo[activePhoto].classList.add('active');
+
+        // se arrivo all'ultima img devo far scomparire la freccia
+        if(activePhoto === photo.length -1)
+            {
+                arrow.classList('photo');
+                // classe photo perchè ha display none
+            }
+        }
+    
 
     }
     )
     
 
-    // passare alla foto successiva
 
-    // alla foto successiva aggiungere la classe active
 
 
